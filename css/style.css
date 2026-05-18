@@ -1,119 +1,180 @@
 @import url("reset.css");
 
-html {
-    padding: 0;
-    margin: 0;
+/* GLOBAL */
+
+html,
+body {
+	background-color: #f9f9f9;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
 }
 
-body {
-    color: #333333;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-}
+/* CONTAINER */
 
 .container {
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1000px;
-    align-items: stretch;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 12px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Courier New", Courier, monospace;
-    font-weight: bold;
-    line-height: 1;
-    text-transform: uppercase;
-    margin: 0 0 1.6rem;
-}
-
-p {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    margin: 0 0 1.6rem;
-}
-
-a {
-    color: #0056b3;
-    border-bottom: 2px solid transparent;
-    transition: all 0.5s ease-in-out;
-}
-
-a:hover {
-    color: #002348;
-    border-bottom: 2px solid #002348;
-}
-
-hr {
-    margin: 3.2rem 1.6rem;
-    color: #555555;
-    border-color: #555555;
-}
-
-.module {
-    margin: 1.6rem 0 1.6rem;
-}
-
-.module:nth-child(1) {
-    margin: 0 0 1.6rem;
-}
-
+/* HEADER */
 
 .header {
-    background-color: #64bcda;
-    border-bottom: 8px solid #000000;
-    margin-bottom: 3.2rem;
+	background-color: #64bcda;
+	border-bottom: 8px solid #000000;
+	margin-bottom: 2rem;
+	padding-top: 1rem;
 }
 
 .header_logo {
-    padding: 1.6rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
 }
 
 .header_logo img {
-    width: 100%;
-    max-width: 420px;
+	width: 100%;
+	max-width: 420px;
 }
 
+/* VOLUME LEFT / DATE RIGHT */
 
 .header_pub-info {
-    width: 100%;
-    padding: 0 1.6rem;
-    margin: 0 0 1.6rem;
-    text-transform: uppercase;
-
-    
-    display: block;
-    text-align: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0 1.5rem 1rem;
+	text-transform: uppercase;
+	font-size: 0.9rem;
 }
 
+/* TYPOGRAPHY */
 
-.header_pub-info {
-  width: 100%;
-  padding: 0 1.6rem;
-  margin: 0 0 1.6rem;
-  text-transform: uppercase;
-  display: block;
-  text-align: center;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+	line-height: 1.1;
+	text-transform: uppercase;
+	margin-bottom: 1rem;
 }
 
-
-@media (min-width: 800px) {
-  .header_pub-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-  }
+p {
+	margin-bottom: 1.5rem;
 }
 
+a {
+	color: #0056b3;
+	border-bottom: 2px solid transparent;
+	transition: 0.3s ease;
+}
+
+a:hover {
+	color: #002348;
+	border-bottom: 2px solid #002348;
+}
+
+/* MAIN GRID */
+
+.main-content {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 12px;
+	align-items: start;
+}
+
+/* MAIN ARTICLE */
+
+.main-article {
+	background-color: #e2e2e2;
+	padding: 1.5rem;
+	border-radius: 10px;
+}
+
+.main-article img {
+	width: 100%;
+}
+
+.main-article figcaption {
+	font-size: 0.8rem;
+	font-style: italic;
+	color: #666666;
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.main-article_byline {
+	margin-bottom: 1rem;
+}
+
+/* SIDEBAR */
+
+.main-sidebar {
+	background-color: #323232;
+	color: #f2f2f2;
+	padding: 1.5rem;
+	border-radius: 10px;
+	font-size: 0.9rem;
+}
+
+.main-sidebar img {
+	width: 100%;
+}
+
+.main-sidebar_thumb {
+	margin-bottom: 1rem;
+}
+
+.main-sidebar_thumb .caption {
+	display: block;
+	font-size: 0.8rem;
+	font-style: italic;
+	margin-top: 0.5rem;
+}
+
+.main-sidebar_byline {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.main-sidebar li {
+	margin-bottom: 1rem;
+}
+
+/* FOOTER */
+
+.site-footer {
+	background-color: #222222;
+	color: #ffffff;
+	text-align: center;
+	padding: 1rem;
+	margin-top: 2rem;
+}
+
+/* MOBILE */
+
+@media (max-width: 799px) {
+
+	.main-content {
+		grid-template-columns: 1fr;
+	}
+
+	.header_pub-info {
+		flex-direction: column;
+		gap: 0.5rem;
+		text-align: center;
+	}
+}
 
 
 
